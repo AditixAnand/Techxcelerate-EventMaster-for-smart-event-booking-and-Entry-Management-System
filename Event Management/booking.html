@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Event - Smart Event Booking System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/booking.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <!-- Add Stripe JS -->
+    <script src="https://js.stripe.com/v3/"></script>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>EventMaster</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li><a href="index.html#events">Events</a></li>
+            <li><a href="#" class="active">Book Tickets</a></li>
+            <li><a href="index.html#check-in">Check-in</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <section class="booking-hero">
+            <div class="booking-hero-content">
+                <h1>Book Your Event</h1>
+                <p>Secure your spot at amazing events</p>
+            </div>
+        </section>
+
+        <section class="booking-process">
+            <div class="booking-container">
+                <div class="booking-steps">
+                    <div class="step active" id="step1">
+                        <span class="step-number">1</span>
+                        <span class="step-text">Select Event</span>
+                    </div>
+                    <div class="step" id="step2">
+                        <span class="step-number">2</span>
+                        <span class="step-text">Choose Tickets</span>
+                    </div>
+                    <div class="step" id="step3">
+                        <span class="step-number">3</span>
+                        <span class="step-text">Payment</span>
+                    </div>
+                </div>
+
+                <div class="booking-form-container">
+                    <!-- Step 1: Event Selection -->
+                    <div class="booking-step" id="step1-content">
+                        <h2>Select Your Event</h2>
+                        <div class="event-selection-grid">
+                            <!-- Events will be populated dynamically -->
+                        </div>
+                    </div>
+
+                    <!-- Step 2: Ticket Selection -->
+                    <div class="booking-step hidden" id="step2-content">
+                        <h2>Choose Your Tickets</h2>
+                        <div class="selected-event-summary"></div>
+                        <div class="ticket-options">
+                            <div class="ticket-type">
+                                <div class="ticket-info">
+                                    <h3>General Admission</h3>
+                                    <p>Standard entry to the event</p>
+                                    <span class="ticket-price">$99</span>
+                                </div>
+                                <div class="ticket-quantity">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" min="0" max="10" value="0" class="quantity-input">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                            <div class="ticket-type">
+                                <div class="ticket-info">
+                                    <h3>VIP Access</h3>
+                                    <p>Premium seating and exclusive perks</p>
+                                    <span class="ticket-price">$199</span>
+                                </div>
+                                <div class="ticket-quantity">
+                                    <button class="quantity-btn minus">-</button>
+                                    <input type="number" min="0" max="10" value="0" class="quantity-input">
+                                    <button class="quantity-btn plus">+</button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="ticket-summary">
+                            <h3>Order Summary</h3>
+                            <div class="summary-items">
+                                <!-- Will be populated dynamically -->
+                            </div>
+                            <div class="summary-total">
+                                <span>Total</span>
+                                <span class="total-amount">$0</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Step 3: Payment Information -->
+                    <div class="booking-step hidden" id="step3-content">
+                        <h2>Payment Details</h2>
+                        <form id="payment-form" class="payment-form">
+                            <div class="form-group">
+                                <label for="name">Full Name</label>
+                                <input type="text" id="name" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-element">Credit or Debit Card</label>
+                                <div id="card-element" class="card-input-wrapper">
+                                    <!-- Stripe Card Element will be inserted here -->
+                                </div>
+                                <div id="card-errors" class="payment-error" role="alert"></div>
+                            </div>
+                            <div class="payment-summary">
+                                <div class="summary-line">
+                                    <span>Subtotal</span>
+                                    <span class="subtotal-amount">$0.00</span>
+                                </div>
+                                <div class="summary-line">
+                                    <span>Processing Fee</span>
+                                    <span class="fee-amount">$0.00</span>
+                                </div>
+                                <div class="summary-line total">
+                                    <span>Total</span>
+                                    <span class="final-amount">$0.00</span>
+                                </div>
+                            </div>
+                            <button type="submit" id="submit-payment" class="payment-button">
+                                <span class="button-text">Pay Now</span>
+                                <div class="spinner hidden" id="spinner"></div>
+                            </button>
+                        </form>
+                    </div>
+
+                    <div class="booking-navigation">
+                        <button class="nav-btn back-btn" style="display: none;">
+                            <i class="fas fa-arrow-left"></i> Back
+                        </button>
+                        <button class="nav-btn next-btn">
+                            Next <i class="fas fa-arrow-right"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@eventmaster.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="index.html#events">Browse Events</a></li>
+                    <li><a href="#booking">Book Tickets</a></li>
+                    <li><a href="index.html#check-in">Check-in</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EventMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/booking.js"></script>
+</body>
+</html> 

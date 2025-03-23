@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Smart Event Booking System</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            <h1>EventMaster</h1>
+        </div>
+        <ul class="nav-links">
+            <li><a href="#home" class="active">Home</a></li>
+            <li><a href="explore.html">Events</a></li>
+            <li><a href="#check-in">Check-in</a></li>
+            <li><a href="login.html" class="login-btn">Login</a></li>
+        </ul>
+        <div class="hamburger">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+    </nav>
+
+    <main>
+        <!-- Hero Section -->
+        <section id="home" class="hero">
+            <div class="hero-content">
+                <h1>Welcome to Smart Event Booking</h1>
+                <p>Book tickets, manage events, and track entries - all in one place</p>
+                <div class="hero-buttons">
+                    <a href="explore.html" class="cta-button">Explore Events</a>
+                </div>
+            </div>
+            <div class="hero-overlay"></div>
+        </section>
+
+        <!-- Features Section -->
+        <section id="features" class="features-section">
+            <div class="section-header">
+                <h2>Why Choose EventMaster</h2>
+                <p>Experience the best in event management</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <i class="fas fa-qrcode"></i>
+                    <h3>Digital Check-in</h3>
+                    <p>Quick and secure entry with QR code scanning</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-mobile-alt"></i>
+                    <h3>Mobile Tickets</h3>
+                    <p>Access your tickets anytime, anywhere</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Secure Booking</h3>
+                    <p>Safe and encrypted payment processing</p>
+                </div>
+                <div class="feature-card">
+                    <i class="fas fa-clock"></i>
+                    <h3>Real-time Updates</h3>
+                    <p>Instant notifications about your events</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Event Categories -->
+        <section id="categories" class="categories-section">
+            <div class="section-header">
+                <h2>Event Categories</h2>
+                <p>Find events that match your interests</p>
+            </div>
+            <div class="categories-grid">
+                <a href="#" class="category-card music">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-music"></i>
+                    <h3>Music</h3>
+                    <p>120+ Events</p>
+                </a>
+                <a href="#" class="category-card tech">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-laptop-code"></i>
+                    <h3>Technology</h3>
+                    <p>85+ Events</p>
+                </a>
+                <a href="#" class="category-card sports">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-basketball-ball"></i>
+                    <h3>Sports</h3>
+                    <p>95+ Events</p>
+                </a>
+                <a href="#" class="category-card arts">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-palette"></i>
+                    <h3>Arts & Theatre</h3>
+                    <p>70+ Events</p>
+                </a>
+                <a href="#" class="category-card food">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-utensils"></i>
+                    <h3>Food & Drink</h3>
+                    <p>110+ Events</p>
+                </a>
+                <a href="#" class="category-card business">
+                    <div class="category-overlay"></div>
+                    <i class="fas fa-briefcase"></i>
+                    <h3>Business</h3>
+                    <p>65+ Events</p>
+                </a>
+            </div>
+        </section>
+
+        <!-- Featured Event with Countdown -->
+        <section id="featured" class="featured-section">
+            <div class="featured-content">
+                <div class="featured-info">
+                    <span class="featured-label">Featured Event</span>
+                    <h2>Summer Music Festival 2024</h2>
+                    <p>Join us for the biggest music festival of the year featuring top artists from around the world.</p>
+                    <div class="countdown-timer">
+                        <div class="countdown-item">
+                            <span id="countdown-days">00</span>
+                            <label>Days</label>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="countdown-hours">00</span>
+                            <label>Hours</label>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="countdown-minutes">00</span>
+                            <label>Minutes</label>
+                        </div>
+                        <div class="countdown-item">
+                            <span id="countdown-seconds">00</span>
+                            <label>Seconds</label>
+                        </div>
+                    </div>
+                    <a href="explore.html" class="cta-button">Explore Events</a>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section id="testimonials" class="testimonials-section">
+            <div class="section-header">
+                <h2>What Our Users Say</h2>
+                <p>Trusted by thousands of event-goers</p>
+            </div>
+            <div class="testimonials-slider">
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1494790108377-be9c29b29330?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="Sarah Johnson">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"EventMaster made booking tickets so easy! The digital check-in was seamless, and I loved getting real-time updates about the event."</p>
+                        <h4>Sarah Johnson</h4>
+                        <span>Music Festival Attendee</span>
+                    </div>
+                </div>
+                <div class="testimonial-card">
+                    <div class="testimonial-image">
+                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-1.2.1&auto=format&fit=crop&w=150&q=80" alt="David Chen">
+                    </div>
+                    <div class="testimonial-content">
+                        <p>"As an event organizer, this platform has streamlined our entire ticketing process. The analytics and check-in features are invaluable."</p>
+                        <h4>David Chen</h4>
+                        <span>Event Organizer</span>
+                    </div>
+                </div>
+            </div>
+            <div class="testimonial-dots">
+                <span class="dot active"></span>
+                <span class="dot"></span>
+                <span class="dot"></span>
+            </div>
+        </section>
+
+        <!-- Events Section -->
+        <section id="events" class="events-section">
+            <div class="section-header">
+                <h2>Upcoming Events</h2>
+                <p>Discover and book amazing events happening near you</p>
+            </div>
+            <div class="events-grid">
+                <!-- Event cards will be dynamically added here -->
+            </div>
+        </section>
+
+        <!-- Booking Section -->
+        <section id="booking" class="booking-section">
+            <div class="section-header">
+                <h2>Book Your Tickets</h2>
+                <p>Secure your spot at your favorite events</p>
+            </div>
+            <div class="booking-form">
+                <form id="ticketBookingForm">
+                    <div class="form-group">
+                        <label for="eventSelect">Select Event</label>
+                        <select id="eventSelect" required>
+                            <option value="">Choose an event...</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="ticketQuantity">Number of Tickets</label>
+                        <input type="number" id="ticketQuantity" min="1" max="10" value="1" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendeeName">Full Name</label>
+                        <input type="text" id="attendeeName" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="attendeeEmail">Email</label>
+                        <input type="email" id="attendeeEmail" required>
+                    </div>
+                    <div class="price-display">
+                        <p id="totalPrice">Total: $0.00</p>
+                    </div>
+                    <button type="submit" class="submit-btn">
+                        <span>Book Now</span>
+                        <i class="fas fa-arrow-right"></i>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Check-in Section -->
+        <section id="check-in" class="check-in-section">
+            <div class="section-header">
+                <h2>Digital Check-in</h2>
+                <p>Quick and easy event entry verification</p>
+            </div>
+            <div class="check-in-container">
+                <div class="ticket-validator">
+                    <input type="text" id="ticketCode" placeholder="Enter your ticket code">
+                    <button onclick="validateTicket()" class="validate-btn">
+                        <span>Validate Ticket</span>
+                        <i class="fas fa-ticket-alt"></i>
+                    </button>
+                </div>
+                <div id="validationResult" class="validation-result"></div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p><i class="fas fa-envelope"></i> info@eventmaster.com</p>
+                <p><i class="fas fa-phone"></i> (555) 123-4567</p>
+                <p><i class="fas fa-map-marker-alt"></i> 123 Event Street, City</p>
+            </div>
+            <div class="footer-section">
+                <h3>Quick Links</h3>
+                <ul class="footer-links">
+                    <li><a href="#events">Browse Events</a></li>
+                    <li><a href="#booking">Book Tickets</a></li>
+                    <li><a href="#check-in">Check-in</a></li>
+                    <li><a href="#">Terms & Conditions</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Us</h3>
+                <div class="social-links">
+                    <a href="#" aria-label="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+                    <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+                <div class="newsletter">
+                    <h4>Subscribe to Newsletter</h4>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Enter your email">
+                        <button type="submit"><i class="fas fa-paper-plane"></i></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 EventMaster. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+</html> 
